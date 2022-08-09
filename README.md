@@ -1,4 +1,4 @@
 BFF
 ======
 
-A project that serves as a microservice for eCommerce project 
+A "Backend For Frontend" project that serves as a microservice for eCommerce project 
