@@ -18,7 +18,7 @@ function submitSellerRegister(e) {
         address,
         phoneNumber
     }
-    
+
     fetch("http://127.0.0.1:3002/sellerRegister", {
         method: 'POST',
         body: JSON.stringify(data),
@@ -38,4 +38,3 @@ function submitSellerRegister(e) {
     })
     .catch((err) => ("Error occured", err));
 }
-
