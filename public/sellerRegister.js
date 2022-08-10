@@ -3,38 +3,49 @@ form.addEventListener("submit", submitSellerRegister);
 
 function submitSellerRegister(e) {
     e.preventDefault();
-    const companyName = document.getElementById("companyName").value
-    const email = document.getElementById("eMail").value
-    const password = document.getElementById("password").value
-    const passwordAgain = document.getElementById("passwordAgain").value
-    const address = document.getElementById("address").value
-    const phoneNumber = document.getElementById("phoneNumber").value
+    const info = document.getElementById("info") 
+    
+    const companyName = document.getElementById("companyName")
+    const email = document.getElementById("eMail")
+    const password = document.getElementById("password")
+    const passwordAgain = document.getElementById("passwordAgain")
+    const address = document.getElementById("address")
+    const phoneNumber = document.getElementById("phoneNumber")
 
-    const data = {
-        companyName,
-        email,
-        password,
-        passwordAgain,
-        address,
-        phoneNumber
-    }
-
-    fetch("http://127.0.0.1:3002/sellerRegister", {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" }
-    }).then(response => response.json())
-    .then(data => {
-        if (data.message === "") { //Message will be changed
-            companyName = null
-            email = null
-            password = null
-            passwordAgain = null
-            address = null
-            phoneNumber = null
-
-        } else {
+    if (password.value === passwordAgain.value) {
+        const data = {
+            companyName: companyName.value,
+            email: email.value,
+            password: password.value,
+            passwordAgain: passwordAgain.value,
+            address: address.value,
+            phoneNumber: phoneNumber.value
         }
-    })
-    .catch((err) => ("Error occured", err));
+
+        fetch("http://127.0.0.1:3002/sellerRegister", {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: { "Content-Type": "application/json" }
+        }).then(response => response.json())
+            .then(data => {
+                if (data.message === "OK") { //Message will be changed
+                    companyName.value = null
+                    email.value = null
+                    password.value = null
+                    passwordAgain.value = null
+                    address.value = null
+                    phoneNumber.value = null
+
+                } else if (data.message === "passwords does not match") {
+                    info.innerHTML = "Passwords does not match"
+                } else if (data.message === "email already registered") {
+                    info.innerHTML = "Email Already Registered"
+                } else {
+                    info.innerHTML = "Server Fail. Try Again Later"
+                }
+            })
+            .catch((err) => ("Error occured", err));
+    } else {
+        info.innerHTML = "Passwords does not match"
+    }
 }
