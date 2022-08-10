@@ -1,4 +1,42 @@
 body {
+    margin: 0;
+}
+
+nav {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    width: 1200px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    width: 15%;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    max-width: 50%;
+}
+.search-bar {
+    border: solid 1px rgb(100, 100, 100);
+    border-radius: 10px;
+    padding: 10px 200px;
+    text-align: center;
+}
+
+.register {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 35%;
+}
+
+.register a {
+    padding-left: 20px;
 }
