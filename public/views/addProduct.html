@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="addProduct">
+        <label for="title">Product Title</label>
+        <input type="text" name="title" id="title" value="Example Title">
+        
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description" value="example example">
+
+        <label for="price">Price</label>
+        <input type="number" step="0.01" name="price" id="price" value="10">
+
+        <label for="stock">Stock</label>
+        <input type="number" name="stock" id="stock" value="25">
+
+        <label for="photo">Product Image</label>
+        <input type="file" name="photo" id="photo">
+
+        <br><br>
+        <button type="submit">Add Product</button>
+    </form>
+
+    <script src="/scripts/addProduct.js"></script>
+</body>
+</html>

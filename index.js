@@ -23,6 +23,26 @@ app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/views/userRegister.html'));
 });
 
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/views/userLogin.html'));
+});
+
+app.get('/seller-login', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/views/sellerLogin.html'));
+});
+
+app.get('/profile', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/views/userProfile.html'));
+});
+
+app.get('/seller-dashboard', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/views/sellerDashboard.html'));
+});
+
+app.get('/seller-add-product', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/views/addProduct.html'));
+});
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
