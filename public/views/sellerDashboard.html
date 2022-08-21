@@ -1,18 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Seller Dashboard</title>
+
+    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/dashboard.css">
 </head>
+
 <body>
-    <p>- Seller Dashboard -</p>
+    <nav id="navBar"></nav>
+
     <br>
-    <p id="email"></p>
-    
-    <button onclick="window.location.href='/seller-add-product'">Add Product</button>
+    <div id="productsTable">
+        <div class="table-header flex-row spc-btwn align-center">
+            <h3 class="text-center">Products</h3>
+            <!-- <form>
+                <input class="search-bar" type="text" name="searchBar" id="searchBar" placeholder="Search Product">
+            </form> -->
+            <button class="add-product" onclick="window.location.href='/seller-add-product'">Add Product</button>
+
+        </div>
+        <div class="flex-row">
+            <p class="image-col">Image</p>
+            <p class="title-col">Title ▼</p>
+            <p class="price-col">Price ▼</p>
+            <p class="description-col">Description ▼</p>
+            <p class="stock-col">Stock ▼</p>
+        </div>
+    </div>
+
 </body>
 
-    <script src="/scripts/sellerDashboard.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/scripts/sellerDashboard.js"></script>
+<script src="/scripts/common.js"></script>
+
 </html>

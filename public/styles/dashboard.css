@@ -1,0 +1,53 @@
+
+#productsTable {
+    border: 1px solid black;
+    width: 80%;
+    margin: auto;
+}
+
+.table-header {
+    border-bottom: 1px solid black;
+    height: 40px;
+
+}
+
+.table-header .search-bar {
+    height: 10px;
+}
+
+.table-header .add-product {
+    height: 20px;
+}
+
+.productsTable-row {
+    border-top: 1px solid black;
+}
+
+.image-col {
+    width: 10%;
+}
+
+.title-col {
+    width: 20%;
+}
+
+.price-col {
+    width: 10%;
+}
+
+.description-col {
+    width: 47%;
+}
+
+.stock-col {
+    width: 10%;
+}
+
+.del-col {
+    background-image: url(../image/delete.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+    width: 40px;
+    cursor: pointer;
+}
