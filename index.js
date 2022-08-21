@@ -43,6 +43,10 @@ app.get('/seller-add-product', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/views/addProduct.html'));
 });
 
+app.get('/:product', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/views/product.html'));
+});
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
