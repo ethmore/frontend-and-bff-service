@@ -1,5 +1,7 @@
-form {
+#sellerRegisterForm {
     display: flex;
     flex-direction: column;
-    max-width: 50%;
+    max-width: 20%;
+    margin: auto;
+    margin-top: 3%;
 }

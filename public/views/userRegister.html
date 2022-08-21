@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User Register</title>
 
     <link rel="stylesheet" href="/styles/userRegister.css">
+    <link rel="stylesheet" href="/styles/common.css">
+
 </head>
+
 <body>
-    - User Register -
-    <br><br>
+    <nav id="navBar"></nav>
+
     <form id="userRegisterForm">
         <label for="name">Name</label>
         <input type="text" name="name" id="name" value="John">
         <label for="surname">Surname</label>
         <input type="text" name="surname" id="surname" value="Doe">
-    
+
         <label for="eMail">E-Mail</label>
         <input type="text" name="eMail" id="eMail" value="example@mail.com">
-    
+
         <label for="password">Password</label>
         <input type="password" name="password" id="password" value="examplePassword">
-    
+
         <label for="passwordAgain">Password (Again)</label>
         <input type="password" name="passwordAgain" id="passwordAgain" value="examplePassword">
-       
+
         <br>
         <button type="submit">Register!</button>
-        </form>
+    </form>
 
-        <p id="info"></p>
+    <p id="info"></p>
 
-        <script src="/scripts/userRegister.js"></script>
+    <script src="/scripts/common.js"></script>
+    <script src="/scripts/userRegister.js"></script>
 </body>
+
 </html>
