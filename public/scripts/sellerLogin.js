@@ -9,7 +9,8 @@ function submitSellerLogin(e) {
 
     const data = {
         email: email.value,
-        password: password.value
+        password: password.value,
+        type: "seller"
     }
 
     fetch("http://127.0.0.1:3002/sellerLogin", {
