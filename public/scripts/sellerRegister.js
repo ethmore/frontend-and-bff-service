@@ -36,12 +36,15 @@ function submitSellerRegister(e) {
                     address.value = null
                     phoneNumber.value = null
 
+                    info.innerHTML = "Successfully registered. Redirecting to login page..."
+                    window.location.href= '/seller-login'
+
                 } else if (data.message === "passwords does not match") {
                     info.innerHTML = "Passwords does not match"
                 } else if (data.message === "email already registered") {
                     info.innerHTML = "Email Already Registered"
                 } else {
-                    info.innerHTML = "Server Fail. Try Again Later"
+                    info.innerHTML = "Failed. Try Again Later"
                 }
             })
             .catch((err) => ("Error occured", err));

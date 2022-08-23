@@ -64,8 +64,8 @@ function getCookie(name) {
     return null;
 }
 
-function eraseCookie(name) {   
-    document.cookie = name+'=; Max-Age=-99999999;';  
+function eraseCookie(name) {
+    document.cookie = name + '=; Max-Age=-99999999;';
 }
 
 function validateToken() {
@@ -81,13 +81,7 @@ function validateToken() {
         headers: { "Content-Type": "application/json" }
     }).then(response => response.json())
         .then(data => {
-            if (data.message === "OK") {
-                loadNavbar(data.mail, data.type);
-            }
-            if (data.message === "loginNeeded") {
-                // window.location.href = "/seller-login"
-                loadNavbar(data.mail, data.type);
-            }
+            loadNavbar(data.mail, data.type);
         })
 }
 
@@ -124,9 +118,6 @@ function loadUserSellerLoginRegister() {
     wrapper.className = "register"
 
     return wrapper
-
-    // userDiv.appendChild(sellerDiv)
-    // userDiv.appendChild(userLogDiv)
 }
 
 function sellerDropdown(tokenMail) {
@@ -153,7 +144,7 @@ function sellerDropdown(tokenMail) {
     logoutBtn.className = "logout-btn"
     logoutBtn.innerHTML = "Logout"
     logoutBtn.href = ""
-    logoutBtn.addEventListener("click", function(e) {
+    logoutBtn.addEventListener("click", function (e) {
         e.preventDefault();
         eraseCookie("token")
         window.location = "/"
@@ -193,7 +184,7 @@ function userDropdown(tokenMail) {
     logoutBtn.className = "logout-btn"
     logoutBtn.innerHTML = "Logout"
     logoutBtn.href = ""
-    logoutBtn.addEventListener("click", function(e) {
+    logoutBtn.addEventListener("click", function (e) {
         e.preventDefault();
         eraseCookie("token")
         window.location = "/"

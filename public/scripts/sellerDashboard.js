@@ -21,20 +21,6 @@ function profilePOST(e) {
         token: token,
     }
 
-    fetch("http://127.0.0.1:3002/profile", {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" }
-    }).then(response => response.json())
-        .then(data => {
-            if (data.message === "OK") {
-            }
-            if (data.message === "loginNeeded") {
-                window.location.href = "/seller-login"
-            }
-        })
-
-
     fetch("http://127.0.0.1:3002/getProducts", {
         method: 'POST',
         body: JSON.stringify(data),
@@ -43,14 +29,16 @@ function profilePOST(e) {
         .then(data => {
             if (data.message === "OK") {
                 listProducts(data.products)
-            }
-            if (data.message === "loginNeeded") {
+            } else {
                 window.location.href = "/seller-login"
             }
         })
 }
 
 function listProducts(products) {
+    if (products === null) {
+        return
+    }
     var length = products.length
     for (var i = 0; i < length; i++) {
         const productsTable = document.getElementById("productsTable")

@@ -33,6 +33,9 @@ function submitSellerRegister(e) {
                     password.value = null
                     passwordAgain.value = null
 
+                    info.innerHTML = "Successfully registered. Redirecting to login page..."
+                    window.location.href= '/login'
+
                 } else if (data.message === "passwords does not match") {
                     info.innerHTML = "Passwords does not match"
                 } else if (data.message === "email already registered") {

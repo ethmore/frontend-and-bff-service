@@ -4,7 +4,7 @@ form.addEventListener("submit", submitSellerLogin);
 function submitSellerLogin(e) {
     e.preventDefault();
 
-    const email = document.getElementById("email")
+    const email = document.getElementById("eMail")
     const password = document.getElementById("password")
 
     const data = {
@@ -22,6 +22,10 @@ function submitSellerLogin(e) {
             if (data.message === "OK") {
                 document.cookie = "token=" + data.token + "; SameSite=None; Secure"
                 window.location.href = "/profile"
+            } else if (data.message === "wrong credentials"){
+                info.innerHTML = "Invalid email or password"
+            } else {
+                info.innerHTML = "Failed. Try again later"
             }
         })
 }

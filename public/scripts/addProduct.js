@@ -3,7 +3,7 @@ form.addEventListener("submit", submitSellerRegister);
 
 function submitSellerRegister(e) {
     e.preventDefault();
-    // const info = document.getElementById("info") 
+    const info = document.getElementById("info") 
 
     const token = getCookie("token")
 
@@ -34,6 +34,8 @@ function submitSellerRegister(e) {
                 price.value = null
                 stock.value = null
                 photo.value = null
+
+                info.innerHTML = "Product added succesfully!"
 
             } else if (data.message === "passwords does not match") {
                 info.innerHTML = "Passwords does not match"
