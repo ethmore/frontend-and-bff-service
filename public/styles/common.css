@@ -1,6 +1,6 @@
 /* Globals */
 body {
-    width: 80%;
+    width: 1200px;
     margin: auto;
     padding: 0;
 }
@@ -97,7 +97,7 @@ nav {
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    z-index: 5;
     margin-top: 15px;
     left: -40px;
 }
@@ -128,3 +128,31 @@ nav {
 .dropdown-content .logout-btn:hover {
     background-color: rgba(255, 89, 89, 0.918);
 } 
+
+.blanket {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.5;
+    z-index: -100;
+}
+
+#cart {
+    background-image: url(../image/cart.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+    width: 40px;
+    height: 40px;
+    transition: 0.25s;
+}
+
+#cart:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.25s;
+}
