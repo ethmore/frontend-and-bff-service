@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edir Product</title>
+
+    <link rel="stylesheet" href="/styles/common.css">
+
+</head>
+<body>
+    <nav id="navBar"></nav>
+
+    <form id="editProduct" class="flex-column width50 margin-auto">
+        <label for="title">Product Title</label>
+        <input type="text" name="title" id="title">
+
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description">
+
+        <label for="price">Price</label>
+        <input type="number" step="0.01" name="price" id="price">
+
+        <label for="stock">Stock</label>
+        <input type="number" name="stock" id="stock">
+
+        <label for="photo">Product Image</label>
+        <input type="file" name="photo" id="photo">
+
+        <br>
+        <button type="submit">Update Product</button>
+        <br>
+        <button id="delBtn">Delete Product</button>
+        
+        <p id="info"></p>
+
+    </form>
+
+
+
+    <script src="/scripts/common.js"></script>
+    <script src="/scripts/sellerScripts/productEdit.js"></script>
+</body>
+</html>
