@@ -21,7 +21,7 @@ function submitSellerRegister(e) {
         stock: stock.value,
         photo: photo.value
     }
-    console.log(data)
+    // console.log(data)
     fetch("http://127.0.0.1:3002/addProduct", {
         method: 'POST',
         body: JSON.stringify(data),
@@ -37,10 +37,8 @@ function submitSellerRegister(e) {
 
                 info.innerHTML = "Product added succesfully!"
 
-            } else if (data.message === "passwords does not match") {
-                info.innerHTML = "Passwords does not match"
-            } else if (data.message === "email already registered") {
-                info.innerHTML = "Email Already Registered"
+            } else if (data.message === "auth error") {
+                info.innerHTML = "Authentication error. Please logout and login again"
             } else {
                 info.innerHTML = "Server Fail. Try Again Later"
             }

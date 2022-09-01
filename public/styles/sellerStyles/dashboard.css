@@ -43,8 +43,8 @@
     width: 10%;
 }
 
-.del-col {
-    background-image: url(../image/delete.png);
+.edit-col {
+    background-image: url(../../image/edit.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size:contain;

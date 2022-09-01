@@ -1,5 +1,3 @@
-const mail = document.getElementById("email")
-
 document.addEventListener("DOMContentLoaded", profilePOST)
 
 function getCookie(name) {
@@ -16,6 +14,7 @@ function getCookie(name) {
 function profilePOST(e) {
     e.preventDefault();
 
+    const mail = document.getElementById("email")
     const token = getCookie("token")
 
     const data = {
@@ -30,8 +29,10 @@ function profilePOST(e) {
         .then(data => {
             if (data.message === "OK") {
                 mail.innerHTML = data.mail
+            } else {
+                window.location.href = "/login"
             }
-            if (data.message === "loginNeeded") {
+            if (data.type === "seller") {
                 window.location.href = "/login"
             }
         })

@@ -51,38 +51,18 @@ function listProducts(products) {
         const price = document.createElement("p")
         const description = document.createElement("p")
         const stock = document.createElement("p")
-        const del = document.createElement("a")
+        const edit = document.createElement("a")
 
         image.className = "image-col"
         title.className = "title-col"
         price.className = "price-col"
         description.className = "description-col"
         stock.className = "stock-col"
-        del.className = "del-col"
-        del.id = products[i]["Id"]
-        del.addEventListener("click", function (e) {
-            e.preventDefault();
+        edit.className = "edit-col"
+        edit.id = products[i]["Id"]
 
-            const token = getCookie("token")
-            const data = {
-                token: token,
-                id: this.id
-            }
-
-            fetch("http://127.0.0.1:3002/deleteProduct", {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: { "Content-Type": "application/json" }
-            }).then(response => response.json())
-                .then(data => {
-                    if (data.message === "OK") {
-                        location.reload()
-                    }
-                    if (data.message === "loginNeeded") {
-                        window.location.href = "/seller-login"
-                    }
-                })
-        })
+        var linkFirstSection = products[i]["Title"].replace(/\s+/g, '-').toLowerCase();
+        edit.href = "product-edit/" + linkFirstSection + "-" + products[i]["Id"]
 
         image.alt = "IMG"
         title.innerHTML = products[i]["Title"]
@@ -95,7 +75,7 @@ function listProducts(products) {
         row.appendChild(price)
         row.appendChild(description)
         row.appendChild(stock)
-        row.appendChild(del)
+        row.appendChild(edit)
 
         productsTable.appendChild(row)
     }
