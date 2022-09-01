@@ -9,6 +9,9 @@ function init(e) {
 function loadNavbar(tokenMail, loginType) {
     const navBar = document.getElementById("navBar")
 
+    const blanket = document.createElement("div")
+    blanket.className = "blanket"
+
     const logo = document.createElement("a")
     logo.className = "logo"
     logo.innerHTML = "eComm"
@@ -38,7 +41,13 @@ function loadNavbar(tokenMail, loginType) {
     } else if (loginType === "user") {
         if (tokenMail !== undefined) {
             const dropdown = userDropdown(tokenMail);
+
+            const cart = document.createElement("a")
+            cart.id = "cart"
+            cart.href = "/cart"
+
             userDiv.appendChild(dropdown);
+            userDiv.appendChild(cart);
         } else {
             eraseCookie("token")
             window.location = "/login"
@@ -48,6 +57,7 @@ function loadNavbar(tokenMail, loginType) {
         userDiv.appendChild(wrapper)
     }
 
+    navBar.appendChild(blanket)
     navBar.appendChild(logo)
     navBar.appendChild(form)
     navBar.appendChild(userDiv)
@@ -65,7 +75,7 @@ function getCookie(name) {
 }
 
 function eraseCookie(name) {
-    document.cookie = name + '=; Max-Age=-99999999;';
+    document.cookie = name + '=; Path=/; Max-Age=-99999999;';
 }
 
 function validateToken() {
@@ -178,7 +188,7 @@ function userDropdown(tokenMail) {
 
     const addProductBtn = document.createElement("a")
     addProductBtn.innerHTML = "My addresses"
-    addProductBtn.href = "/user-addresses"
+    addProductBtn.href = "/profile/addresses"
 
     const logoutBtn = document.createElement("a")
     logoutBtn.className = "logout-btn"
