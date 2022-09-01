@@ -17,3 +17,13 @@
 #product .priceWrapper {
     width: 200px;
 }
+
+.addCartBtn {
+    padding: 5px;
+    background-color: rgb(70, 204, 70);
+    cursor: pointer;
+}
+
+.qty {
+    width: 40px;
+}

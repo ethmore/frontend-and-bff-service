@@ -10,7 +10,7 @@ function getProductInfo(e) {
 
     const data = {
         token: token,
-        id: productId 
+        id: productId
     }
 
     fetch("http://127.0.0.1:3005/getProduct", {
@@ -20,7 +20,7 @@ function getProductInfo(e) {
     }).then(response => response.json())
         .then(data => {
             if (data.message === "OK") {
-                console.log(data.productInfo.Products)
+                // console.log(data.productInfo.Products)
                 createProduct(data.productInfo.Products)
             }
         })
@@ -60,12 +60,64 @@ function createProduct(product) {
     priceWrapper.appendChild(price)
     priceWrapper.appendChild(stock)
 
+    const descriptionWrapper = document.createElement("div")
+    const descriptionTitle = document.createElement("h4")
+    descriptionTitle.innerHTML = "Description:"
+
     const description = document.createElement("p")
     description.innerHTML = product["Description"]
 
+    descriptionWrapper.appendChild(descriptionTitle)
+    descriptionWrapper.appendChild(description)
+
+    const qty = document.createElement("input")
+    qty.type = "number"
+    qty.value = 1
+    qty.className = "qty"
+    qty.max = 10
+    qty.min = 1
+
+    var invalidChars = [
+        "-",
+        "+",
+        "e",
+    ];
+
+    qty.addEventListener("keydown", function (e) {
+        if (invalidChars.includes(e.key)) {
+            e.preventDefault();
+        }
+    })
+
+    const addCartBtn = document.createElement("a")
+    addCartBtn.className = "addCartBtn"
+    addCartBtn.innerHTML = "Add To Cart"
+    addCartBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        const token = getCookie("token")
+        const data = {
+            token: token,
+            id: product["Id"],
+            qty: qty.value
+        }
+        fetch("http://127.0.0.1:3007/addProductToCart", {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        }).then(response => response.json())
+            .then(data => {
+                if (data.message === "OK") {
+                    window.location.href = "/cart"
+                }
+            })
+    })
+
     productInfoDiv.appendChild(title)
     productInfoDiv.appendChild(priceWrapper)
-    productInfoDiv.appendChild(description)
+    productInfoDiv.appendChild(descriptionWrapper)
+    productInfoDiv.appendChild(qty)
+    productInfoDiv.appendChild(addCartBtn)
+
 
     productWrapper.appendChild(image)
     productWrapper.appendChild(productInfoDiv)
