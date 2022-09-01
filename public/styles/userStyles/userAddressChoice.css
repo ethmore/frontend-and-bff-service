@@ -1,0 +1,29 @@
+.addressWrapper {
+    border: 1px solid black;
+}
+
+#addresses div {
+    border: 1px solid black;
+    margin-left: 10px;
+    padding: 10px;
+}
+
+.paymentWrapper {
+    border: 1px solid black;
+}
+
+#confirm {
+    padding: 10px;
+    background-color: greenyellow;
+    transition: 0.1s;
+    border-radius: 10px;
+    border: none;
+}
+
+#confirm:hover {
+    background-color: greenyellow;
+    cursor: pointer;
+    transition: 0.1s;
+    outline: 2px solid rgb(0, 204, 0);
+
+}

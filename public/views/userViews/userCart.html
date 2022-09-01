@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+
+    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/userStyles/cart.css">
+</head>
+<body>
+    <nav id="navBar"></nav>
+
+    <div id="cartWrap" class="cartWrapper flex-row"> 
+        <div id="productsInCart" class="width50 margin-auto">
+            <div id="table"></div>
+        </div>
+        <div class="total flex-column align-center">
+            Total Price:
+            <div class="flex-row">
+            <p id="totalPrice"></p>
+            <p>TL</p>
+            </div>
+            <a class="toPurchase" id="toPurchase">Proceed to purchase</a>
+        </div>
+    </div>
+    
+    <script src="/scripts/common.js"></script>
+    <script src="/scripts/userScripts/cart.js"></script>
+
+</body>
+</html>
