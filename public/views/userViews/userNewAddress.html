@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Address</title>
+
+    <link rel="stylesheet" href="/styles/common.css">
+</head>
+
+<body>
+    <nav id="navBar"></nav>
+    <br>
+    <form id="newAddressForm" class="flex-column width50 margin-auto">
+        <label for="name">Address Title</label>
+        <input type="text" name="title" id="title" value="Home">
+
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" value="John">
+        <label for="surname">Surname</label>
+        <input type="text" name="surname" id="surname" value="Doe">
+
+        <label for="phoneNumber">Phone Number</label>
+        <input type="tel" name="phonenumber" id="phoneNumber" value="5441234567">
+
+        <label for="province">Province</label>
+        <input type="text" name="province" id="province" value="Isparta">
+        <label for="county">County</label>
+        <input type="text" name="county" id="county" value="Merkez">
+
+        <label for="address">Address</label>
+        <input type="text" name="address" id="address" value="Example detailed address">
+
+        <br>
+        <button type="submit">Save Address</button>
+        <br>
+        <p id="info"></p>
+
+    </form>
+
+    <script src="/scripts/common.js"></script>
+    <script src="/scripts/userScripts/userNewAddress.js"></script>
+
+
+</body>
+
+</html>
