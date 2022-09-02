@@ -33,6 +33,10 @@ app.get('/profile/addresses', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/views/userViews/userAddresses.html'));
 });
 
+app.get('/profile/settings', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/views/userViews/userSettings.html'));
+});
+
 app.get('/profile/add-new-address', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/views/userViews/userNewAddress.html'));
 });

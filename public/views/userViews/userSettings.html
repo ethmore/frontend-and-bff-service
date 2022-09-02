@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings</title>
+
+    <link rel="stylesheet" href="/styles/common.css">
+
+</head>
+
+<body>
+    <nav id="navBar"></nav>
+
+    <form id="changeUserPassword" class="flex-column width50 margin-auto">
+        <label for="oldPassword">Old Password</label>
+        <input type="password" name="oldPassword" id="oldPassword" value="examplePassword">
+        <br>
+        <label for="newPassword">New Password</label>
+        <input type="password" name="newPassword" id="newPassword" value="newExamplePassword">
+
+        <label for="newPasswordAgain">New Password Again</label>
+        <input type="password" name="newPasswordAgain" id="newPasswordAgain" value="newExamplePassword">
+        <br>
+        <button type="submit">Change Password</button>
+
+        <p id="info"></p>
+    </form>
+
+    <script src="/scripts/common.js"></script>
+    <script src="/scripts/changePassword.js"></script>
+
+</body>
+
+</html>
