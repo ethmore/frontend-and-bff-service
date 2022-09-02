@@ -56,6 +56,7 @@ function listProducts(products) {
         price.className = "prod-price"
 
         image.alt = "IMG"
+        image.src = "../image/product.webp"
         title.innerHTML = products[i]["Title"]
         price.innerHTML = products[i]["Price"] + " TL"
 

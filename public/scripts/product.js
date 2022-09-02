@@ -44,6 +44,7 @@ function createProduct(product) {
     const image = document.createElement("img")
     image.src = ""
     image.alt = "Product Image"
+    image.src = "../image/product.webp"
 
     const productInfoDiv = document.createElement("div")
     productInfoDiv.className = "product-Info"

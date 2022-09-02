@@ -46,3 +46,7 @@ input[type=number] {
   background-color: rgb(255, 172, 17);
   cursor: pointer;
 }
+
+.image-col {
+  width: 50px;
+}

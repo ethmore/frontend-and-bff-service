@@ -1,6 +1,17 @@
 .product {
     width: 200px;
-    height: 170px;
+    /* height: 170px; */
     border: 1px solid black;
     margin: 1%;
+    transition: 0.2s;
+
+}
+
+.product p {
+    padding-left: 10px;
+}
+
+.product:hover {
+    border-radius: 20px;
+    transition: 0.2s;
 }

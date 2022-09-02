@@ -67,7 +67,9 @@ function createProductsInCart(products) {
 
         row.className = "cartRow"
 
+        image.className = "image-col"
         image.alt = "IMG"
+        image.src = "../../image/product.webp"
         title.innerHTML = products[i].Title
 
         qtyWrapper.className = "flex-row align-center"
