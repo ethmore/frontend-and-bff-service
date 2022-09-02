@@ -73,6 +73,8 @@ function createProductsInCart(products) {
         title.innerHTML = products[i].Title
 
         qtyWrapper.className = "flex-row align-center"
+        qtyWrapper.id = products[i].Id
+
         qty.type = "number"
         qty.value = products[i].Qty
         qty.max = 10
@@ -89,6 +91,32 @@ function createProductsInCart(products) {
             "e",
         ];
     
+        qty.addEventListener("blur", () => {
+            if (qty.value > 10) {
+                qty.value = 10
+            } else if (qty.value < 1) {
+                qty.value = 1
+            }
+
+            const token = getCookie("token")
+            const data = {
+                token: token,
+                id: qtyWrapper.id,
+                qty: qty.value
+            }
+            console.log(data)
+            fetch("http://127.0.0.1:3007/changeProductQty", {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: { "Content-Type": "application/json" }
+            }).then(response => response.json())
+                .then(data => {
+                    if (data.message === "OK") {
+                        location.reload();
+                    }
+                })
+        })
+
         qty.addEventListener("keydown", function (e) {
             if (invalidChars.includes(e.key)) {
                 e.preventDefault();
