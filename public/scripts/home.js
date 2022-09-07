@@ -27,8 +27,8 @@ function getProducts(e) {
     }).then(response => response.json())
         .then(data => {
             if (data.message === "OK") {
-                console.log(data.products.Products)
-                listProducts(data.products.Products)
+                console.log(data.products)
+                listProducts(data.products)
             }
         })
 

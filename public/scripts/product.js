@@ -21,7 +21,7 @@ function getProductInfo(e) {
         .then(data => {
             if (data.message === "OK") {
                 // console.log(data.productInfo.Products)
-                createProduct(data.productInfo.Products)
+                createProduct(data.productInfo)
             }
         })
 }
