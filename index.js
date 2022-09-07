@@ -29,6 +29,10 @@ app.get('/profile', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/views/userViews/userProfile.html'));
 });
 
+app.get('/profile/orders', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/views/userViews/userOrders.html'));
+});
+
 app.get('/profile/addresses', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/views/userViews/userAddresses.html'));
 });
@@ -92,6 +96,20 @@ app.post('/payment-callback', async (req, res) => {
 
         }
     } else {
+        //For 3ds failure case
+        const data = {
+            status: req.body.status,
+            paymentId: req.body.paymentId,
+            conversationData: req.body.conversationData,
+            conversationId: req.body.conversationId,
+            mdStatus:req.body.mdStatus
+        }
+        
+        await fetch("http://127.0.0.1:3008/makeThreeDsPayment", {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: { "Content-Type": "application/json" }
+        })
         str = ""
         res.sendFile(path.join(__dirname + '/public/views/userViews/paymentFail.html'));
     }
