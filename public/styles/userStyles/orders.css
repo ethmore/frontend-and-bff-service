@@ -1,0 +1,17 @@
+.parentRow {
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+.order-row {
+    width: 80%;
+}
+
+.productRow {
+    width: 70%;
+}
+
+.sellerName {
+    font-size: smaller;
+    color: rgba(0, 0, 0, 0.685);
+}

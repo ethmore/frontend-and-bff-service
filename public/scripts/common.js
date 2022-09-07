@@ -186,6 +186,10 @@ function userDropdown(tokenMail) {
     userMail.id = "email"
     userMail.innerHTML = tokenMail
 
+    const myOrders = document.createElement("a")
+    myOrders.innerHTML = "My Orders"
+    myOrders.href = "/profile/orders"
+
     const myAddressses = document.createElement("a")
     myAddressses.innerHTML = "My addresses"
     myAddressses.href = "/profile/addresses"
@@ -205,6 +209,7 @@ function userDropdown(tokenMail) {
     })
 
     content.appendChild(userMail);
+    content.appendChild(myOrders);
     content.appendChild(myAddressses);
     content.appendChild(accountSettings)
     content.appendChild(logoutBtn);
