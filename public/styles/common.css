@@ -30,6 +30,11 @@ body {
     text-align: center;
 }
 
+.width80 {
+    width: 80%;
+}
+
+
 .width50 {
     width: 50%;
 }
