@@ -104,17 +104,7 @@ function createProductsInCart(products) {
                 id: qtyWrapper.id,
                 qty: qty.value
             }
-            console.log(data)
-            fetch("http://127.0.0.1:3007/changeProductQty", {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: { "Content-Type": "application/json" }
-            }).then(response => response.json())
-                .then(data => {
-                    if (data.message === "OK") {
-                        location.reload();
-                    }
-                })
+            changeProductQty(data)
         })
 
         qty.addEventListener("keydown", function (e) {
@@ -126,40 +116,40 @@ function createProductsInCart(products) {
         qtyDecrease.id = products[i].Id
         qtyIncrease.id = products[i].Id
         qtyIncrease.addEventListener("click", function() {
+            newVal = parseInt(qty.value)
+            newVal = newVal + 1
+            if (newVal > 10) {
+                newVal = 10
+            } else if (newVal < 1) {
+                newVal = 1
+            }
+            qty.value = newVal
+
             const token = getCookie("token")
             const data = {
                 token: token,
-                id: this.id,
+                id: qtyWrapper.id,
+                qty: qty.value
             }
-
-            fetch("http://127.0.0.1:3007/increaseProductQty", {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: { "Content-Type": "application/json" }
-            }).then(response => response.json())
-                .then(data => {
-                    if (data.message === "OK") {
-                        location.reload();
-                    }
-                })
+            changeProductQty(data)
         })
         qtyDecrease.addEventListener("click", function() {
+            newVal = parseInt(qty.value)
+            newVal = newVal - 1
+            if (newVal > 10) {
+                newVal = 10
+            } else if (newVal < 1) {
+                newVal = 1
+            }
+            qty.value = newVal
+
             const token = getCookie("token")
             const data = {
                 token: token,
-                id: this.id,
+                id: qtyWrapper.id,
+                qty: qty.value
             }
-
-            fetch("http://127.0.0.1:3007/decreaseProductQty", {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: { "Content-Type": "application/json" }
-            }).then(response => response.json())
-                .then(data => {
-                    if (data.message === "OK") {
-                        location.reload();
-                    }
-                })
+            changeProductQty(data)
         })
 
         price.innerHTML = products[i].Price * qty.value + "TL"
@@ -223,3 +213,18 @@ document.getElementById("toPurchase").addEventListener("click", () => {
         }
     })
 })
+
+function changeProductQty(data) {
+    
+            console.log(data)
+            fetch("http://127.0.0.1:3007/changeProductQty", {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: { "Content-Type": "application/json" }
+            }).then(response => response.json())
+                .then(data => {
+                    if (data.message === "OK") {
+                        location.reload();
+                    }
+                })
+}
