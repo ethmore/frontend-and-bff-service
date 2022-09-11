@@ -137,6 +137,10 @@ app.get('/product-edit/:product', (req, res) => {
 });
 
 //Public
+app.get('/sr/:query', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/views/search.html'));
+});
+
 app.get('/:product', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/views/product.html'));
 });

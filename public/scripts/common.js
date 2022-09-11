@@ -20,11 +20,23 @@ function loadNavbar(tokenMail, loginType) {
     const searchBar = document.createElement("input")
     searchBar.className = "search-bar"
     searchBar.type = "text"
-    searchBar.name = "searchBar"
+    searchBar.name = "q"
     searchBar.id = "searchBar"
     searchBar.placeholder = "Search Product"
 
     const form = document.createElement("form")
+    form.id = "search" 
+    
+    form.method = "GET"
+    // form.href = "/sr"
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        form.action =  "/sr/"+searchBar.value+""
+        window.location = form.action
+        console.log("A")
+    })
+
+
     form.appendChild(searchBar)
 
     const userDiv = document.createElement("div")
