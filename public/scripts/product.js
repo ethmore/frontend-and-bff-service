@@ -20,7 +20,7 @@ function getProductInfo(e) {
     }).then(response => response.json())
         .then(data => {
             if (data.message === "OK") {
-                // console.log(data.productInfo.Products)
+                console.log(data)
                 createProduct(data.productInfo)
             }
         })

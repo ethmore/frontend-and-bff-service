@@ -67,3 +67,4 @@ function listProducts(products) {
         productsDiv.appendChild(product)
     }
 }
+
